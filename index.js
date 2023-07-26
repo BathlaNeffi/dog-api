@@ -1,3 +1,5 @@
+
+
 function  fetchRandomImage () {
 
     var xhrRequest= new XMLHttpRequest();
@@ -7,8 +9,15 @@ function  fetchRandomImage () {
 
         // console.log(responseJSON);
         var imageURL=responseJSON.message;
+
+        let arr=imageURL.split('/');
+    //     for(let i of arr){
+    //         // console.log(i) ;
+    //    }
+       $('#breed').text(arr[4]);
         $('#dog-image').attr('src',imageURL);
-    };
+    }
+
     xhrRequest.open('get','https://dog.ceo/api/breeds/image/random', true);
     xhrRequest.send();
 
